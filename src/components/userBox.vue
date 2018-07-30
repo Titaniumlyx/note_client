@@ -25,7 +25,7 @@
       email: {{userMsg.email}}
     </div>
     <div>
-      <el-button type="warning" style="width: 100%; margin-top: 10px">退出登录</el-button>
+      <el-button type="warning" style="width: 100%; margin-top: 10px" @click="handleOut">退出登录</el-button>
     </div>
   </div>
 
@@ -61,6 +61,8 @@
                 cookies.set('username',this.userMsg.username,{ expires: 14 });
                 cookies.set('email',this.userMsg.email,{ expires: 14 });
                 alert('登录成功，欢迎回来' + res.data.data.username)
+              }else{
+                alert(res.data.msg)
               }
             })
         },
@@ -72,6 +74,20 @@
             this.userMsg.username = username;
             this.userMsg.email = email;
           }
+        },
+        handleOut(){
+          this.userMsg.username = '';
+          this.userMsg.email = '';
+          cookies.remove('username');
+          cookies.remove('email');
+
+          this.$axios.delete('/logout').then(res => {
+            if(res.data.data == 200){
+              alert('退出登录成功')
+            }else{
+              alert(res.data.msg);
+            }
+          })
         }
       },
       mounted() {
