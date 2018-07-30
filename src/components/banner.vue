@@ -2,9 +2,9 @@
 <div class="banner-wrap">
   <el-carousel indicator-position="none" height="340px">
     <el-carousel-item v-for="(item,index) in picArr" :key="index">
-      <img :src=item.pic>
+      <img :src=item.img>
       <span class="pic-desc clearfix">
-        {{item.desc}}
+        {{item.title}}
       </span>
     </el-carousel-item>
   </el-carousel>
@@ -21,11 +21,22 @@
       data(){
           return{
             picArr:[
-              {pic:pic1, desc:"沙漠啊，荒芜哎"},
-              {pic:pic2, desc:"风景，不容易"},
-              {pic:pic3, desc:"晚上，真静谧，安静且美丽"}
+              // {pic:pic1, desc:"沙漠啊，荒芜哎"},
+              // {pic:pic2, desc:"风景，不容易"},
+              // {pic:pic3, desc:"晚上，真静谧，安静且美丽"}
             ]
           }
+      },
+      methods: {
+          getSwiper(){
+            this.$axios.get('/getswiper').then(res => {
+              console.log(res)
+              this.picArr = res.data.data;
+            })
+          }
+      },
+      mounted(){
+          this.getSwiper();
       }
     }
 </script>
