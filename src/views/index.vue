@@ -5,6 +5,7 @@
     <div class="wrap">
       <div class="left-con">
         <Banner></Banner>
+        <ArticleList :articles="articleData"></ArticleList>
       </div>
       <div class="user-con">
         <UserBox></UserBox>
@@ -17,12 +18,29 @@
 <script>
   import Header from '../components/Header';
   import Banner from '../components/banner';
-  import UserBox from '../components/userBox'
+  import UserBox from '../components/userBox';
+  import ArticleList from '../components/articleList';
 
     export default {
         name: "index",
       components: {
-        Header,Banner,UserBox
+        Header,Banner,UserBox,ArticleList
+      },
+      data(){
+          return{
+            articleData:[]
+          }
+      },
+      methods: {
+          getArticle(){
+            this.$axios.get('/getArticle').then(res =>{
+              // console.log(res);
+              this.articleData = res.data.data;
+            })
+          }
+      },
+      mounted(){
+          this.getArticle();
       }
     }
 </script>

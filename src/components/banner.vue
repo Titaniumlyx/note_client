@@ -30,7 +30,7 @@
       methods: {
           getSwiper(){
             this.$axios.get('/getswiper').then(res => {
-              console.log(res)
+              // console.log(res);
               this.picArr = res.data.data;
             })
           }
