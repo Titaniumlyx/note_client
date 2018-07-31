@@ -38,7 +38,7 @@
           let basePath = process.env.NODE_ENV == 'development'? '/api':''
 
           this.allArticle = val.map(item => {
-            console.log(item);
+            // console.log(item);
             return item;
           })
         }

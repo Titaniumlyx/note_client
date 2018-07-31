@@ -1,10 +1,10 @@
 <template>
 <div class="header-container">
   <div class="block">
-    <h1 class="fll">云笔记</h1>
+    <h1 class="fll" @click="$router.push('/')">云笔记</h1>
     <div class="flr">
       <i class="iconfont icon-sousuo"></i>
-      <el-button class="write-btn flr">写笔记</el-button>
+      <el-button class="write-btn flr" @click="handleJudge">写笔记</el-button>
     </div>
   </div>
 </div>
@@ -12,7 +12,24 @@
 
 <script>
     export default {
-        name: "Header"
+        name: "Header",
+      data(){
+          return{
+            author: ""
+          }
+      },
+      methods: {
+          handleJudge(){
+            this.$axios.post('/judge').then((res) => {
+              // console.log(res);
+              if(res.data.code == 400){
+                alert(res.data.msg);
+              }else{
+                this.$router.push('/writeNote');
+              }
+            })
+          }
+      }
     }
 </script>
 
