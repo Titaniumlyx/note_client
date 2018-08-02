@@ -19,6 +19,11 @@ export default new Router({
     {
       path: '/writeNote',
       component: ()=> import('../views/writeNote')
+    },
+    {
+      path: '/content',
+      name: 'content',
+      component: ()=> import('../views/content')
     }
   ]
 })
