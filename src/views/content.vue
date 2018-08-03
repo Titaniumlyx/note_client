@@ -26,7 +26,8 @@
       data(){
           return{
             res: { },
-            createDate: ""
+            createDate: "",
+            str: ''
           }
       },
       methods: {
@@ -35,9 +36,15 @@
             this.$axios.post(`/getArticle/${id}`).then(res => {
               console.log(res);
               this.res = res.data.data;
-              let str = timeSwitch.getTime(this.res.createdAt).time();
+              if(this.res.createdAt){
+                let str = timeSwitch.getTime(this.res.createdAt).time();
+                this.createDate = str;
+              }else{
+                let str = timeSwitch.getTime(this.res.createTime).time();
+                this.createDate = str;
+              }
               // console.log(str);
-              this.createDate = str;
+              // this.createDate = str;
 
               // let date = new Date(this.res.createdAt);
               // let y = date.getFullYear();
