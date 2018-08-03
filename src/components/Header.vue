@@ -3,7 +3,7 @@
   <div class="block">
     <h1 class="fll" @click="$router.push('/')">云笔记</h1>
     <div class="flr">
-      <i class="iconfont icon-sousuo"></i>
+      <i class="iconfont icon-sousuo" @click="$router.push('/search')"></i>
       <el-button class="write-btn flr" @click="handleJudge">写笔记</el-button>
     </div>
   </div>
@@ -46,6 +46,7 @@
       width: 1170px;
       margin: 0 auto;
       h1{
+        cursor: pointer;
         color: #fff;
         font-weight: 500;
         line-height: 50px;
@@ -56,6 +57,7 @@
         display: inline-block;
         margin-top: 6px;
         margin-right: 10px;
+        cursor: pointer;
       }
       .write-btn{
         width: 80px;

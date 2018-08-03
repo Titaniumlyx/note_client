@@ -14,16 +14,21 @@ export default new Router({
     },
     {
       path: '/register',
-      component: ()=> import('../views/register')
+      component: () => import('../views/register')
     },
     {
       path: '/writeNote',
-      component: ()=> import('../views/writeNote')
+      component: () => import('../views/writeNote')
     },
     {
       path: '/content',
       name: 'content',
-      component: ()=> import('../views/content')
+      component: () => import('../views/content')
+    },
+    {
+      path: '/search',
+      name: 'search',
+      component: () => import('../views/search')
     }
   ]
 })
