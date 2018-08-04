@@ -12,9 +12,9 @@
 </template>
 
 <script>
-  import pic1 from '../assets/imgs/desert.jpg';
-  import pic2 from '../assets/imgs/sight.jpg';
-  import pic3 from '../assets/imgs/night.jpg';
+  // import pic1 from '../assets/imgs/desert.jpg';
+  // import pic2 from '../assets/imgs/sight.jpg';
+  // import pic3 from '../assets/imgs/night.jpg';
 
     export default {
         name: "banner",
