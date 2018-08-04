@@ -2,7 +2,7 @@
 // Template version: 1.3.1
 // see http://vuejs-templates.github.io/webpack for documentation.
 
-const path = require('path')
+const path = require('path');
 
 module.exports = {
   dev: {
@@ -12,7 +12,7 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {  //proxyTable的原理: 代理跨域    解决跨域问题
       '/api': {
-        target: 'http://localhost:3000',
+        target: 'http://localhost:10012',
         pathRewrite: {
           '/api': '/'
         }

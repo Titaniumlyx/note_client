@@ -3,7 +3,7 @@
       <router-link :to="{name: 'content',params: {id: item._id}}" class="item" v-for="item in allArticle" :key="item._id">
         <div class="item-top">
           <div class="img-wrap">
-            <img src="../assets/imgs/desert.jpg">
+            <img :src="item.userPic">
           </div>
           <div class="item-msg">
             <div class="row-one">

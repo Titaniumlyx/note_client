@@ -16,7 +16,7 @@
   </div>
   <div class="user-con" v-else>
     <div class="user-pic">
-      <img src="../assets/imgs/sight.jpg">
+      <img :src="userMsg.avatar">
     </div>
     <div class="user-item">
       小萌萌: {{userMsg.username}}
@@ -44,7 +44,8 @@
             password:"",
             userMsg: {
               username:"",
-              email:""
+              email:"",
+              avatar: ""
             }
           }
       },
@@ -53,13 +54,16 @@
           let params = {
             email: this.email,
             password: this.password,
-            username: this.username
+            // username: this.username,
+            // avatar: this.avatar
           };
             this.$axios.post('/entry', params).then(res => {
+              // console.log(res);
               if(res.data.code == 200){
                 this.userMsg = res.data.data;
                 cookies.set('username',this.userMsg.username,{ expires: 14 });
                 cookies.set('email',this.userMsg.email,{ expires: 14 });
+                cookies.set('avatar',this.userMsg.avatar,{ expires: 14 });
                 alert('登录成功，欢迎回来' + res.data.data.username)
               }else{
                 alert(res.data.msg)
@@ -69,17 +73,21 @@
         getUserMsg(){
           let username = cookies.get('username');
           let email = cookies.get('email');
+          let avatar = cookies.get('avatar');
 
           if(username && email){
             this.userMsg.username = username;
             this.userMsg.email = email;
+            this.userMsg.avatar = avatar;
           }
         },
         handleOut(){
           this.userMsg.username = '';
           this.userMsg.email = '';
+          this.userMsg.avatar = '';
           cookies.remove('username');
           cookies.remove('email');
+          cookies.remove('avatar');
 
           this.$axios.delete('/logout').then(res => {
             if(res.data.data == 200){
