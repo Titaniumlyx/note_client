@@ -24,6 +24,9 @@
     <div class="user-item">
       email: {{userMsg.email}}
     </div>
+    <div class="modify">
+      <el-button type="warning" style="width: 100%;margin-top: 10px" @click="$router.push('/modiInfor')">修改信息</el-button>
+    </div>
     <div>
       <el-button type="warning" style="width: 100%; margin-top: 10px" @click="handleOut">退出登录</el-button>
     </div>
@@ -55,7 +58,7 @@
             email: this.email,
             password: this.password,
             // username: this.username,
-            // avatar: this.avatar
+            avatar: this.avatar
           };
             this.$axios.post('/entry', params).then(res => {
               // console.log(res);

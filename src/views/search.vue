@@ -39,7 +39,7 @@
       handleSearch() {
         let title = this.title;
         this.$axios.get('/articleSearch', {params: {title}}).then(res => {
-            console.log(res);
+            // console.log(res);
             if(res.data.code == 200){
               this.articleData = res.data.data;
             }

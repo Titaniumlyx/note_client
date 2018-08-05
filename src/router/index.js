@@ -29,6 +29,11 @@ export default new Router({
       path: '/search',
       name: 'search',
       component: () => import('../views/search')
+    },
+    {
+      path: '/modiInfor',
+      name: 'modiInfor',
+      component: () => import('../views/modiInfor')
     }
   ]
 })

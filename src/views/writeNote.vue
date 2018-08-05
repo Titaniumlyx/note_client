@@ -34,6 +34,7 @@
   import 'quill/dist/quill.core.css'
   import 'quill/dist/quill.snow.css'
   import 'quill/dist/quill.bubble.css'
+  import cookies from 'js-cookie';
 
   import { quillEditor } from 'vue-quill-editor'
 
@@ -78,7 +79,9 @@
         let params = {
           title: this.title,
           content: this.content,
-          contentText: this.contentText
+          contentText: this.contentText,
+          userPic: cookies.get('avatar'),
+          author : cookies.get('username')
         }
         this.$axios.post('/article',params).then(res => {
           // console.log(res);
