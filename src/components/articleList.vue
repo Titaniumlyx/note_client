@@ -12,7 +12,7 @@
               <h2>{{item.title}}</h2>
             </div>
             <div class="row-two">
-              <span class="row-item">浏览: 0</span>
+              <span class="row-item">浏览: {{item.browse}}</span>
               <span class="row-item">回复: 0</span>
               <span class="row-item">分类: 0</span>
             </div>
