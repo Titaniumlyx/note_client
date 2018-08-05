@@ -62,7 +62,7 @@
         ).then(res => {
           // console.log(res);
           this.imgPath = `/api/${res.data.data}`;
-          cookies.set('avatar',this.imgPath,{ expires: 14 });
+          cookies.set('avatar',this.imgPath,{ expires: 14 });  //把图片存到cookies 这样前端里cookies中存的头像便会改变
         })
       },
       handleConfirm() {

@@ -1,6 +1,7 @@
 <template>
     <div class="art-container">
       <router-link :to="{name: 'content',params: {id: item._id}}" class="item" v-for="item in allArticle" :key="item._id">
+        <!--name: 'content'，这时路由里就必须有name这个属性-->
         <div class="item-top">
           <div class="img-wrap">
             <img :src="item.userPic">
@@ -27,10 +28,10 @@
         name: "articleList",
       props: {
           articles: Array
-      },
+      },  // 父子组件传值，首页可用其绑定传值
       data(){
           return{
-            allArticle: []
+            allArticle: []  //这时子组件里需要渲染的数组 ，通过 watch 监听来绑定并改变
           }
       },
       watch: {

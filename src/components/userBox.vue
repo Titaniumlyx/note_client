@@ -76,12 +76,12 @@
         getUserMsg(){
           let username = cookies.get('username');
           let email = cookies.get('email');
-          let avatar = cookies.get('avatar');
+          let avatar = cookies.get('avatar');  //从cookies中得到所需信息
 
           if(username && email){
             this.userMsg.username = username;
             this.userMsg.email = email;
-            this.userMsg.avatar = avatar;
+            this.userMsg.avatar = avatar;   //把所需的信息进行传输，方便渲染
           }
         },
         handleOut(){

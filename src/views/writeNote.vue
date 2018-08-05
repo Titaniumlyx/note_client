@@ -31,10 +31,10 @@
 
 <script>
   import  Header from '../components/Header'
+  import cookies from 'js-cookie'
   import 'quill/dist/quill.core.css'
   import 'quill/dist/quill.snow.css'
   import 'quill/dist/quill.bubble.css'
-  import cookies from 'js-cookie';
 
   import { quillEditor } from 'vue-quill-editor'
 
