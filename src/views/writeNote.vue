@@ -38,7 +38,7 @@
 
   import { quillEditor } from 'vue-quill-editor'
 
-  const allLabel = ['vue', 'react', 'java', 'script'];
+  const allLabel = ['vue', 'react', 'java', 'script', 'es6', 'css'];
 
   export default {
     name: "writeNote",
@@ -81,7 +81,8 @@
           content: this.content,
           contentText: this.contentText,
           userPic: cookies.get('avatar'),
-          author : cookies.get('username')
+          author : cookies.get('username'),
+          classify: this.checkboxLabel
         }
         this.$axios.post('/article',params).then(res => {
           // console.log(res);

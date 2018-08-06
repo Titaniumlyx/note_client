@@ -12,7 +12,7 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {  //proxyTable的原理: 代理跨域    解决跨域问题
       '/api': {
-        target: 'http://localhost:3000',
+        target: 'http://localhost:10012',
         pathRewrite: {
           '/api': '/'
         }

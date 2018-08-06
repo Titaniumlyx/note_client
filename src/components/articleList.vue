@@ -14,7 +14,8 @@
             <div class="row-two">
               <span class="row-item">浏览: {{item.browse}}</span>
               <span class="row-item">回复: 0</span>
-              <span class="row-item">分类: 0</span>
+              <span class="row-item">分类: </span>
+              <span class="row-item el" v-for="el in item.classify">{{el}} </span>
             </div>
           </div>
         </div>
@@ -100,6 +101,9 @@
               color: #333;
               font-weight: 700;
               margin-right: 30px;
+            }
+            .el{
+              margin-left: -23px;
             }
           }
         }
