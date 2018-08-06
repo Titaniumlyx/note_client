@@ -1,57 +1,67 @@
 <template>
-<div class="header-container">
-  <div class="block">
-    <h1 class="fll" @click="$router.push('/')">云笔记</h1>
-    <div class="flr">
-      <i class="iconfont icon-sousuo" @click="$router.push('/search')"></i>
-      <el-button class="write-btn flr" @click="handleJudge">写笔记</el-button>
+  <div class="header-container">
+    <div class="block">
+      <h1 class="fll" @click="$router.push('/')">云笔记</h1>
+      <div class="flr">
+        <i class="iconfont icon-sousuo" @click="$router.push('/search')"></i>
+        <el-button class="write-btn flr" @click="handleJudge">写笔记</el-button>
+      </div>
     </div>
   </div>
-</div>
 </template>
 
 <script>
-    export default {
-        name: "Header",
-      data(){
-          return{
-            author: ""
-          }
-      },
-      methods: {
-          handleJudge(){
-            this.$axios.post('/judge').then((res) => {
-              // console.log(res);
-              if(res.data.code == 400){
-                alert(res.data.msg);
-              }else{
-                this.$router.push('/writeNote');
-              }
-            })
-          }
+  import cookies from 'js-cookie';
+
+  export default {
+    name: "Header",
+    data() {
+      return {
+        author: ""
+      }
+    },
+    methods: {
+      handleJudge() {
+        let username = cookies.get('username');
+        if (username) {
+          this.$router.push('/writeNote');
+        } else {
+          alert('请先登录..');
+        }
+
+        // this.$axios.post('/judge').then((res) => {
+        //   // console.log(res);
+        //   // if(res.data.code == 400){
+        //   //   alert(res.data.msg);
+        //   // }else{
+        //   //   this.$router.push('/writeNote');
+        //   // }
+        // })
       }
     }
+  }
 </script>
 
 <style scoped lang="scss">
-  *{
+  * {
     margin: 0;
     padding: 0;
   }
-  .header-container{
+
+  .header-container {
     width: 100%;
     height: 50px;
     background: #409eff;
-    .block{
+    .block {
       width: 1170px;
       margin: 0 auto;
-      h1{
+      h1 {
         cursor: pointer;
         color: #fff;
         font-weight: 500;
         line-height: 50px;
       }
-      .iconfont{
+      .iconfont {
         font-size: 30px;
         color: #fff;
         display: inline-block;
@@ -59,7 +69,7 @@
         margin-right: 10px;
         cursor: pointer;
       }
-      .write-btn{
+      .write-btn {
         width: 80px;
         height: 35px;
         border: 1px solid #fff;
