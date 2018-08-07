@@ -11,4 +11,5 @@ a{
   content:"";
   clear: both;
   display: block;
+  overflow: hidden;
 }

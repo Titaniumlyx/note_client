@@ -13,13 +13,15 @@
             </div>
             <div class="row-two">
               <span class="row-item">浏览: {{item.browse}}</span>
-              <span class="row-item">回复: 0</span>
+              <span class="row-item">回复: {{item.commentsId.length}}</span>
               <span class="row-item">分类: </span>
               <span class="row-item el" v-for="el in item.classify">{{el}} </span>
             </div>
           </div>
         </div>
-        <div class="item-content" v-text="item.contentText"></div>
+        <div class="item-content clearfix">
+          <span class="clearfix">{{item.contentText}}</span>
+        </div>
       </router-link>
     </div>
 </template>
@@ -40,7 +42,7 @@
           let basePath = process.env.NODE_ENV == 'development'? '/api':''
 
           this.allArticle = val.map(item => {
-            // console.log(item);
+            console.log(item);
             return item;
           })
         }
@@ -106,6 +108,12 @@
               margin-left: -23px;
             }
           }
+        }
+      }
+      .item-content{
+        span{
+          width: 700px;
+          display: block;
         }
       }
     }

@@ -41,7 +41,8 @@
         username: '',
         comment: '',
         allComments: [],
-        com: ''
+        com: '',
+        commentNum: ''
       }
     },
     methods: {
@@ -89,20 +90,22 @@
         } else {
           alert('内容不能为空!')
         }
+        this.getComments();
       },
       getComments() {
         let id = this.$route.params.id;
         this.$axios.post(`/getComment/${id}`).then(res => {
           // console.log(res);
           this.allComments = res.data.data;
-        })
+        });
       }
     },
-    created() {
+    // created() {
+    //
+    // },
+    mounted(){
       this.getData();
-    },
-    updated(){
-      this.getComments()
+      this.getComments();
     }
   }
 </script>
